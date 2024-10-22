@@ -2,7 +2,7 @@ import React from "react";
 import pic from "../../assets/logo.png";
 function Header() {
   return (
-    <header className="bg-blue-950 text-white py-4 w-full flex justify-between sticky top-0 z-40">
+    <header className="bg-blue-950 text-white py-4 w-full flex justify-between fixed  ">
       <div className="container mx-auto flex flex-col md:flex-row px-4 md:px-6 space-y-4 md:space-y-0">
         {/* Logo and Title/Subtitle */}
         <div className="flex items-center space-x-4 md:w-2/3">

@@ -110,11 +110,10 @@ export default function Calendar() {
   return (
  
        
-      <div className="min-h-screen bg-blue-100 text-gray-900 py-10 w-4/5">
+      <div className="min-h-screen bg-gray-100 text-gray-900 py-10 w-full">
         <div className="container mx-auto px-4">
           <h1
-            className="text-3xl font-bold text-center mb-10"
-            style={{ color: "#0950A0" }}
+            className="text-3xl font-bold text-center mb-6 bg-blue-400 p-4 text-white rounded-md shadow-xl"
           >
             2024 Company Visit Calendar
           </h1>

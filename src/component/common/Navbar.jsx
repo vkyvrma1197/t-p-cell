@@ -1,158 +1,161 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ProfileDropdown from '../core/Auth/ProfileDropdown';
-import { MdNotificationAdd } from "react-icons/md";
-
+import { MdNotificationAdd } from 'react-icons/md';
+import Header from './Header';
 const Navbar = () => {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
-  const location = useLocation();
-  
-  const [loading, setLoading] = useState(false);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  // State for controlling notification modal
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Function to toggle notification modal
   const toggleNotificationModal = () => {
     setIsNotificationOpen(!isNotificationOpen);
   };
 
   return (
-    <nav className="bg-slate-300 text-white p-3 border-b-1 border-blue-900 shadow-sm sticky top-[96px] z-40">
-      <div className="container mx-auto flex justify-between items-center">
-        <ul className="hidden md:flex">
-          <li className="font-semibold p-2 hover:rounded-md hover:underline text-gray-900 text-lg transition-all">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="font-semibold p-2 hover:rounded-md hover:underline text-gray-900 text-lg transition-all">
-            <Link to="/jobboard">Off-Opportunity</Link>
-          </li>
-          <li className="font-semibold p-2 hover:rounded-md hover:underline text-gray-900 text-lg transition-all">
-            <Link to="/events">Events</Link>
-          </li>
-          <li className="font-semibold p-2 hover:rounded-md hover:underline text-gray-900 text-lg transition-all">
-            <Link to="/about-us">About</Link>
-          </li>
-        </ul>
+    <> 
+      <nav className="fixed top-0 left-0 right-0 bg-blue-100    shadow-lg z-50">
+        <div className="container mx-auto flex justify-between items-center p-4">
+           
 
-        <div className="hidden items-center gap-x-4 md:flex">
-          {token === null && (
-            <>
-              <Link to="/login">
-                <button className="rounded-[8px] border border-richblack-700 bg-white px-[12px] py-[8px] text-blue-950 font-semibold hover:bg-gray-100 transition-all">
-                  Sign in
-                </button>
-              </Link>
-              <Link to="/signup">
-                <button className="rounded-[8px] border border-richblack-700 bg-white px-[12px] py-[8px] text-blue-950 font-semibold hover:bg-gray-100 transition-all">
-                  Create New Account
-                </button>
-              </Link>
-            </>
-          )}
-          {token !== null && (
-            <div className="flex items-center gap-x-4">
-              <div className="flex flex-col items-center gap-1">
-                <p className="px-2 text-blue-950 cursor-pointer font-semibold text-[12px]">Placement Year</p>
-                <div className="px-2 text-blue-950 border-2 cursor-pointer font-semibold bg-gray-100 border-blue-950">
-                  2024-25
+          {/* Main Links */}
+          <ul className="hidden md:flex gap-6">
+            <li className="hover:text-blue-900 transition">
+              <Link to="/" className="font-medium text-gray-600">Home</Link>
+            </li>
+            <li className="hover:text-blue-900 transition">
+              <Link to="/jobboard" className="font-medium text-gray-600">Opportunities</Link>
+            </li>
+            <li className="hover:text-blue-900 transition">
+              <Link to="/events" className="font-medium text-gray-600">Events</Link>
+            </li>
+            <li className="hover:text-blue-900 transition">
+              <Link to="/about-us" className="font-medium text-gray-600">About</Link>
+            </li>
+          </ul>
+
+          {/* User Actions */}
+          <div className="hidden md:flex items-center gap-4">
+            {token === null ? (
+              <>
+                <Link to="/login">
+                  <button className="px-4 py-2 border border-blue-900 text-blue-900 rounded-md hover:bg-blue-100 transition">
+                    Sign in
+                  </button>
+                </Link>
+                <Link to="/signup">
+                  <button className="px-4 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition">
+                    Create Account
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center text-center">
+                  <span className="text-xs text-gray-500">Placement Year</span>
+                  <div className="px-2 py-1 bg-gray-100 text-blue-900 font-medium rounded-md border border-blue-900">
+                    2024-25
+                  </div>
                 </div>
+
+                {/* Notification Icon */}
+                <button onClick={toggleNotificationModal}>
+                  <MdNotificationAdd className="text-3xl text-blue-900 hover:text-blue-700" />
+                </button>
+
+                <ProfileDropdown />
               </div>
-              {/* Notification icon */}
-              <button onClick={toggleNotificationModal}>
-                <MdNotificationAdd className="text-3xl text-blue-950 cursor-pointer hover:text-blue-900" />
-              </button>
-              <ProfileDropdown />
-             </div>
-          )}
+            )}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button onClick={toggleMenu} className="text-blue-900 focus:outline-none">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-gray-900 focus:outline-none">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {isMenuOpen && (
-        <ul className="md:hidden bg-slate-300 text-gray-900 space-y-4 p-4">
-          <li className="hover:text-gray-500 cursor-pointer">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer">
-            <Link to="/resources">Job Openings</Link>
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer">
-            <Link to="/calendar">Calendar</Link>
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer">
-            <Link to="/events">Events</Link>
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer">
-            <Link to="/about-us">About</Link>
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer bg-blue-900 text-white font-semibold p-2 px-6 rounded-md max-w-max">
-            <Link to="/login">Login</Link>
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer bg-blue-900 text-white font-semibold p-2 px-6 rounded-md max-w-max">
-            <Link to="/signup">Create Account</Link>
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer bg-blue-900 text-white font-semibold p-2 px-6 rounded-md max-w-max">
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-      )}
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <ul className="md:hidden bg-white bg-opacity-95 border-t border-gray-200 shadow-md p-4 space-y-4">
+            <li className="hover:text-blue-900 transition">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="hover:text-blue-900 transition">
+              <Link to="/jobboard">Opportunities</Link>
+            </li>
+            <li className="hover:text-blue-900 transition">
+              <Link to="/events">Events</Link>
+            </li>
+            <li className="hover:text-blue-900 transition">
+              <Link to="/about-us">About</Link>
+            </li>
+            {token === null ? (
+              <>
+                <li className="hover:text-white bg-blue-900 text-center text-white font-semibold py-2 rounded-md">
+                  <Link to="/login">Login</Link>
+                </li>
+                <li className="hover:text-white bg-blue-900 text-center text-white font-semibold py-2 rounded-md">
+                  <Link to="/signup">Create Account</Link>
+                </li>
+              </>
+            ) : (
+              <li className="hover:text-blue-900 transition">
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            )}
+          </ul>
+        )}
+      </nav>
 
       {/* Notification Modal */}
       {isNotificationOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
-          <div className="bg-white w-[50%] rounded-lg overflow-hidden shadow-lg ">
-            <div className="bg-blue-950 text-white font-semibold p-4 flex justify-between">
-              <div>NOTIFICATIONS</div>
-              <button onClick={toggleNotificationModal} className="text-white underline cursor-pointer">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white w-3/4 md:w-1/2 rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-blue-900 text-white p-4 flex justify-between items-center">
+              <span className="font-semibold">Notifications</span>
+              <button onClick={toggleNotificationModal} className="underline text-white hover:text-gray-200">
                 Close
               </button>
             </div>
-
             <ul>
               {[
-                {
-                  title: 'VISA Interview Schedule',
-                  date: '20-10-2024 23:14 IST',
-                },
-                {
-                  title: 'EricssonEdge Academia Program',
-                  date: '20-10-2024 17:27 IST',
-                },
-                // Add more notifications as needed
+                { title: 'VISA Interview Schedule', date: '20-10-2024 23:14 IST' },
+                { title: 'EricssonEdge Academia Program', date: '20-10-2024 17:27 IST' },
               ].map((notification, idx) => (
-                <li key={idx} className={`p-5 ${idx % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+                <li key={idx} className={`p-4 ${idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'} border-b`}>
                   <a href="#" className="text-blue-500 hover:underline">
                     {notification.title}
                   </a>
-                  <p className="text-xs text-gray-600">{notification.date}</p>
+                  <p className="text-xs text-gray-500">{notification.date}</p>
                 </li>
               ))}
             </ul>
           </div>
         </div>
       )}
-    </nav>
+
+      {/* Add padding to main content to prevent overlap with the fixed Navbar */}
+      <div className="pt-24">
+        {/* Main content goes here */}
+      </div>
+    </>
   );
 };
 

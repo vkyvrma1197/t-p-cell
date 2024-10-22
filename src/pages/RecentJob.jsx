@@ -32,7 +32,7 @@ const RecentJob = () => {
   };
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full bg-gray-100">
       <div className="w-full p-4">
         <div className="flex justify-between mb-4">
           <input

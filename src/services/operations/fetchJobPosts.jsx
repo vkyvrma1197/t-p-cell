@@ -162,6 +162,7 @@ export function widthDrawApplication(navigate, application_id, token) {
 
       // Check for valid response
       if (response?.data?.success) {
+        navigate("/dashboard/recentjob");
         navigate("/dashboard/appliedjob");
         toast.success(" Withdraw Successfully");
       } else {

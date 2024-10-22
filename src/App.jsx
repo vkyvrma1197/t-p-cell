@@ -16,11 +16,18 @@ import PrivateRoute from "./component/core/Auth/PrivateRoute";
 //  import {Notification} from "./component/core/Auth/Notification"
 import JobAppliedList from "./component/common/JobAppliedList";
 import Profile from "./pages/Profile";
+import AcademicDashboard from "./pages/AcademicDashboard ";
+import OfferLetterUpload from "./pages/OfferLetterUpload";
+import ResumeUpload from "./pages/ResumeUpload";
+import HelpDeskComponent from "./pages/HelpDeskComponent";
+import StudentDetailsForm from "./pages/StudentDetailsForm";
+import AttachmentForm from "./pages/AttachmentForm";
+import SkillsForm from "./pages/SkillsForm";
  function App() {
   return (
     <div className="min-h-screen flex flex-col font-inter w-full">
       <div className="  bg-slate-300 flex flex-col font-inter">
-        <Header />
+       
         <NavBar />
         {/* Routes are defined using the Routes component */}
         <div className="flex-grow">
@@ -44,6 +51,13 @@ import Profile from "./pages/Profile";
               <Route path="dashboard/calender" element={<Calender />} />
               <Route path="dashboard/appliedjob" element={<JobAppliedList />} />
               <Route path="dashboard/profile" element={<Profile />} />
+              <Route path="dashboard/curracademics" element={<AcademicDashboard />} />
+              <Route path="dashboard/uploadLetter" element={<OfferLetterUpload />} />
+              <Route path="dashboard/uploadresume" element={<ResumeUpload />} />
+              <Route path="dashboard/help" element={<HelpDeskComponent />} />
+              <Route path="dashboard/personal" element={<StudentDetailsForm />} />
+              <Route path="dashboard/AttachmentForm" element={<AttachmentForm />} />
+              <Route path="dashboard/skill" element={<SkillsForm />} />
              
             </Route>
 

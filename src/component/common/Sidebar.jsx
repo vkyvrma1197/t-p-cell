@@ -102,7 +102,7 @@ const Sidebar = () => {
               {openDropdown === 3 && (
                 <ul className="ml-5 mt-2 gap-2">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
+                    <a href="/dashboard/personal" className="text-gray-400 hover:text-white">
                       <div className="flex items-center">
                         {" "}
                         <IoPerson className="mr-3 text-md" />
@@ -121,7 +121,7 @@ const Sidebar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
+                    <a href="/dashboard/skill" className="text-gray-400 hover:text-white">
                       <div className="flex items-center">
                         {" "}
                         <FaTags className="mr-3 text-md" />
@@ -166,7 +166,7 @@ const Sidebar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
+                    <a href="/dashboard/AttachmentForm" className="text-gray-400 hover:text-white">
                       <div className="flex items-center">
                         {" "}
                         <IoCloudUploadSharp className="mr-3 text-md" />
@@ -189,6 +189,7 @@ const Sidebar = () => {
             </li>
   
             {/* Error Pages */}
+            <Link to="/dashboard/curracademics">
             <li className="mb-3">
               <div
                 className="flex items-center cursor-pointer text-gray-400 hover:text-white"
@@ -198,15 +199,19 @@ const Sidebar = () => {
                 Current Academics
               </div>
             </li>
+            </Link>
+            <Link to="/dashboard/uploadresume">
             <li className="mb-3">
               <div
                 className="flex items-center cursor-pointer text-gray-400 hover:text-white"
                 onClick={() => toggleDropdown(4)} // Toggle dropdown on click
               >
                 <FaExclamationTriangle className="mr-3 text-xl" />
-                Upload Additional Documents
+                Upload Additional Resume
               </div>
             </li>
+            </Link>
+            <Link to="/dashboard/uploadLetter">
             <li className="mb-3">
               <div
                 className="flex items-center cursor-pointer text-gray-400 hover:text-white"
@@ -216,6 +221,7 @@ const Sidebar = () => {
                 Upload Offer Letter
               </div>
             </li>
+            </Link>
             <Link to="dashboard/profile"> 
             <li className="mb-3">
               <div
@@ -227,6 +233,7 @@ const Sidebar = () => {
               </div>
             </li>
             </Link>
+            <Link to="/dashboard/help">
             <li className="mb-3">
               <div
                 className="flex items-center cursor-pointer text-gray-400 hover:text-white"
@@ -236,10 +243,11 @@ const Sidebar = () => {
                 Help Desk
               </div>
             </li>
+            </Link>
             <li className="mb-3">
               <div
                 className="flex items-center cursor-pointer text-gray-400 hover:text-white"
-                onClick={() => toggleDropdown(4)} // Toggle dropdown on click
+                  // Toggle dropdown on click
               >
                 <IoLogOutSharp  className="mr-3 text-xl" />
                 Sign Out
