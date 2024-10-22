@@ -1,0 +1,18 @@
+import { combineReducers } from "@reduxjs/toolkit"
+
+import authReducer from "../slices/authSlices"
+import jobReducer from "../slices/jobSlices"
+import applidJobReducer from "../slices/appliedJobSlice"
+ 
+import profileReducer from "../slices/profileSlice"
+ 
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+  profile: profileReducer,
+  job: jobReducer,
+  appliedJob: applidJobReducer,
+ 
+})
+
+export default rootReducer
