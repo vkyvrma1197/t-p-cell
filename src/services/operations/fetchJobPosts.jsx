@@ -81,8 +81,8 @@ export function ApllyJob(navigate, job_id, token) {
       console.error("Fetch Job Posts Error:", error.message);
 
       if (error.response?.status === 401) {
-        toast.error("Unauthorized! Please log in again.");
-        navigate("/login"); // Navigate to login if unauthorized
+        toast.error(error.response.data.message);
+        navigate("/dashboard/recentjob"); // Navigate to login if unauthorized
       } else {
         toast.error("You have already applied for this job");
       }

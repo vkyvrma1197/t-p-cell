@@ -34,11 +34,20 @@ const Navbar = () => {
               <Link to="/jobboard" className="font-medium text-gray-600">Opportunities</Link>
             </li>
             <li className="hover:text-blue-900 transition">
-              <Link to="/events" className="font-medium text-gray-600">Events</Link>
+              <Link to="/For-Recruiters" className="font-medium text-gray-600">For Recruiters</Link>
+            </li>
+           
+            <li className="hover:text-blue-900 transition">
+              <Link to="/Placement-Statistics" className="font-medium text-gray-600">Placement Statistics</Link>
+            </li>
+            <li className="hover:text-blue-900 transition">
+              <Link to="/Training-Resources" className="font-medium text-gray-600"> Training & Resources</Link>
             </li>
             <li className="hover:text-blue-900 transition">
               <Link to="/about-us" className="font-medium text-gray-600">About</Link>
             </li>
+            
+            
           </ul>
 
           {/* User Actions */}
