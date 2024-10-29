@@ -1,15 +1,14 @@
 import { ClipboardCheck } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ApllyJob } from "../../services/operations/fetchJobPosts";
 
 const JobCard = ({ job }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.job);
-
   const navigate = useNavigate();
 
   const handleApplyNowClick = () => {
@@ -18,9 +17,15 @@ const JobCard = ({ job }) => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setIsChecked(false); // Reset checkbox state
   };
 
   const handleSubmitApplication = () => {
+    if (!isChecked) {
+      alert("Please confirm that the details above are correct.");
+      return;
+    }
+
     dispatch(ApllyJob(navigate, job.job_id, token));
     handleCloseModal(); // Close modal after submission
   };
@@ -60,7 +65,7 @@ const JobCard = ({ job }) => {
 
             {/* Job Details Card */}
             <div className="bg-white p-3 rounded-lg shadow-xl mb-4">
-              <h3 className="text-lg  text-gray-700 mb-1 font-extrabold">
+              <h3 className="text-lg text-gray-700 mb-1 font-extrabold">
                 Job Information
               </h3>
               <p className="text-md font-bold text-gray-600 ">Title: {job.job_title}</p>
@@ -68,9 +73,7 @@ const JobCard = ({ job }) => {
               <p className="text-md font-bold text-gray-600 ">Company: {job.company_name}</p>
               <p className="text-md font-bold text-gray-600 ">Location: {job.location}</p>
               <p className="text-md font-bold text-gray-600 ">Salary: {job.salary} P/M</p>
-              <p className="text-sm text-gray-600">
-                Description: {job.job_description}
-              </p>
+              <p className="text-sm text-gray-600">Description: {job.job_description}</p>
             </div>
 
             {/* Eligibility Card */}
@@ -119,6 +122,19 @@ const JobCard = ({ job }) => {
                   {job.company_website}
                 </a>
               </p>
+            </div>
+
+            {/* Confirmation Checkbox */}
+            <div className="flex items-center mb-4">
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+                className="mr-2"
+              />
+              <label className="text-sm text-gray-600">
+                I confirm that the details above are correct.
+              </label>
             </div>
 
             <div className="flex justify-end space-x-3">

@@ -53,7 +53,7 @@ const Sidebar = () => {
                     }}
                   >
                     <MdDashboard className="mr-3 text-xl" />
-                    New Openings
+                    <span className="hidden md:inline">New Openings</span>
                   </div>
                 </li>
               </Link>
@@ -68,7 +68,7 @@ const Sidebar = () => {
                     }}
                   >
                     <SlCalender className="mr-3 text-xl" />
-                    Calendar
+                    <span className="hidden md:inline">Calendar</span>
                   </div>
                 </li>
               </Link>
@@ -80,7 +80,7 @@ const Sidebar = () => {
                     onClick={() => toggleDropdown(2)}
                   >
                     <FaTable className="mr-3 text-xl" />
-                    Applied Jobs
+                    <span className="hidden md:inline">Applied Jobs</span>
                   </div>
                 </li>
               </Link>
@@ -94,7 +94,7 @@ const Sidebar = () => {
                   }}
                 >
                   <IoDocumentTextSharp className="mr-3 text-xl" />
-                  Build Your Resume
+                  <span className="hidden md:inline">Build Your Resume</span>
                   {upDown ? (
                     <MdKeyboardArrowDown className="text-2xl transition-all" />
                   ) : (
@@ -111,19 +111,16 @@ const Sidebar = () => {
                         className="text-gray-400 hover:text-white"
                       >
                         <div className="flex items-center">
-                          {" "}
                           <IoPerson className="mr-3 text-md" />
-                          <p>Personal Details</p>
+                          <span className="hidden md:inline">Personal Details</span>
                         </div>
                       </a>
                     </li>
-
                     <li>
                       <a href="#" className="text-gray-400 hover:text-white">
                         <div className="flex items-center">
-                          {" "}
                           <HiAcademicCap className="mr-3 text-md" />
-                          <p>Academics Details</p>
+                          <span className="hidden md:inline">Academics Details</span>
                         </div>
                       </a>
                     </li>
@@ -133,45 +130,40 @@ const Sidebar = () => {
                         className="text-gray-400 hover:text-white"
                       >
                         <div className="flex items-center">
-                          {" "}
                           <FaTags className="mr-3 text-md" />
-                          <p>Skills</p>
+                          <span className="hidden md:inline">Skills</span>
                         </div>
                       </a>
                     </li>
                     <li>
                       <a href="#" className="text-gray-400 hover:text-white">
                         <div className="flex items-center">
-                          {" "}
                           <MdLocalActivity className="mr-3 text-md" />
-                          <p>Curricular Activities</p>
+                          <span className="hidden md:inline">Curricular Activities</span>
                         </div>
                       </a>
                     </li>
                     <li>
                       <a href="#" className="text-gray-400 hover:text-white">
                         <div className="flex items-center">
-                          {" "}
                           <AiTwotoneLike className="mr-3 text-md" />
-                          <p>Work Experience</p>
+                          <span className="hidden md:inline">Work Experience</span>
                         </div>
                       </a>
                     </li>
                     <li>
                       <a href="#" className="text-gray-400 hover:text-white">
                         <div className="flex items-center">
-                          {" "}
                           <IoShareSocial className="mr-3 text-md" />
-                          <p>Social Links</p>
+                          <span className="hidden md:inline">Social Links</span>
                         </div>
                       </a>
                     </li>
                     <li>
                       <a href="#" className="text-gray-400 hover:text-white">
                         <div className="flex items-center">
-                          {" "}
                           <MdAddAlert className="mr-3 text-md" />
-                          <p>Career Objective</p>
+                          <span className="hidden md:inline">Career Objective</span>
                         </div>
                       </a>
                     </li>
@@ -181,9 +173,8 @@ const Sidebar = () => {
                         className="text-gray-400 hover:text-white"
                       >
                         <div className="flex items-center">
-                          {" "}
                           <IoCloudUploadSharp className="mr-3 text-md" />
-                          <p>Upload Document </p>
+                          <span className="hidden md:inline">Upload Document </span>
                         </div>
                       </a>
                     </li>
@@ -191,9 +182,8 @@ const Sidebar = () => {
                     <li>
                       <a href="#" className="text-gray-400 hover:text-white">
                         <div className="flex items-center">
-                          {" "}
                           <IoPrint className="mr-3 text-md" />
-                          <p>Submit/Print Resume</p>
+                          <span className="hidden md:inline">Submit/Print Resume</span>
                         </div>
                       </a>
                     </li>
@@ -204,7 +194,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <HiAcademicCap className="mr-3 text-xl" />
-                    Current Academics
+                    <span className="hidden md:inline">Current Academics</span>
                   </div>
                 </li>
               </Link>
@@ -213,7 +203,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <FaExclamationTriangle className="mr-3 text-xl" />
-                    Upload Additional Resume
+                    <span className="hidden md:inline">Upload Additional Resume</span>
                   </div>
                 </li>
               </Link>
@@ -222,7 +212,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <IoCloudUploadSharp className="mr-3 text-xl" />
-                    Upload Offer Letter
+                    <span className="hidden md:inline">Upload Offer Letter</span>
                   </div>
                 </li>
               </Link>
@@ -236,7 +226,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <MdDashboard className="mr-3 text-xl" />
-                    Overview
+                    <span className="hidden md:inline">Overview</span>
                   </div>
                 </li>
               </Link>
@@ -245,7 +235,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <FaRegChartBar className="mr-3 text-xl" />
-                    Company Management
+                    <span className="hidden md:inline">Company Management</span>
                   </div>
                 </li>
               </Link>
@@ -254,7 +244,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <FaUser className="mr-3 text-xl" />
-                    Student Management
+                    <span className="hidden md:inline">Student Management</span>
                   </div>
                 </li>
               </Link>
@@ -263,7 +253,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <MdLocalActivity className="mr-3 text-xl" />
-                    Placement Drives
+                    <span className="hidden md:inline">Placement Drives</span>
                   </div>
                 </li>
               </Link>
@@ -272,7 +262,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <HiAcademicCap className="mr-3 text-xl" />
-                    Training & Development
+                    <span className="hidden md:inline">Training & Development</span>
                   </div>
                 </li>
               </Link>
@@ -281,7 +271,7 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                     <MdAddAlert className="mr-3 text-xl" />
-                    Notifications/Alerts
+                    <span className="hidden md:inline">Notifications/Alerts</span>
                   </div>
                 </li>
               </Link>
@@ -289,17 +279,8 @@ const Sidebar = () => {
               <Link to="/dashboard/reportsanalytics">
                 <li className="mb-3">
                   <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
-                    <FaRegChartBar className="mr-3 text-xl" />
-                    Reports & Analytics
-                  </div>
-                </li>
-              </Link>
-
-              <Link to="/dashboard/settings">
-                <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
-                    <IoPersonOutline className="mr-3 text-xl" />
-                    Settings
+                    <FaRegChartBar className="mr-3 text-xl " />
+                    <span className="hidden md:inline">Reports & Analytics</span>
                   </div>
                 </li>
               </Link>
@@ -311,7 +292,7 @@ const Sidebar = () => {
             <li className="mb-3">
               <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                 <IoPersonOutline className="mr-3 text-xl" />
-                Manage Profile
+                <span className="hidden md:inline">Manage Profile</span>
               </div>
             </li>
           </Link>
@@ -320,7 +301,7 @@ const Sidebar = () => {
             <li className="mb-3">
               <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
                 <FaHandsHelping className="mr-3 text-xl" />
-                Help Desk
+                <span className="hidden md:inline">Help Desk</span>
               </div>
             </li>
           </Link>
@@ -328,7 +309,7 @@ const Sidebar = () => {
           <li className="mb-3">
             <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
               <IoLogOutSharp className="mr-3 text-xl" />
-              Sign Out
+              <span className="hidden md:inline">Sign Out</span>
             </div>
           </li>
         </ul>
