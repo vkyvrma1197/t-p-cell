@@ -7,7 +7,6 @@ const Dashboard = () => {
     <div className="flex w-full bg-blue-100">
       {/* Sidebar */}
       <Sidebar/>
-
       <Outlet/>
     </div>
   );
