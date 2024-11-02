@@ -23,6 +23,7 @@ import HelpDeskComponent from "./pages/HelpDeskComponent";
 import StudentDetailsForm from "./pages/StudentDetailsForm";
 import AttachmentForm from "./pages/AttachmentForm";
 import SkillsForm from "./pages/SkillsForm";
+import CoordinatorOverview from "./component/Cordinator/CoordinatorOverview";
  function App() {
   return (
     <div className="min-h-screen flex flex-col font-inter w-full">
@@ -58,6 +59,7 @@ import SkillsForm from "./pages/SkillsForm";
               <Route path="dashboard/personal" element={<StudentDetailsForm />} />
               <Route path="dashboard/AttachmentForm" element={<AttachmentForm />} />
               <Route path="dashboard/skill" element={<SkillsForm />} />
+              <Route path="dashboard/overview" element={<CoordinatorOverview />} />
              
             </Route>
 
