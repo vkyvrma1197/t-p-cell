@@ -200,7 +200,6 @@ exports.login = async (req, res) => {
         const user = userRows[0];
         console.log("User:", user);
         
-
         // Check if the password matches
         if (await bcrypt.compare(password, user.password)) {
             const payload = {
@@ -303,13 +302,12 @@ exports.changePassword = async (req, res) => {
         console.log("Error in changePassword",error)    ;
         if (connection) await connection.end(); // Ensure connection is closed
         return res.status(500).json({
-      
-            
             success: false,
             message: "An error occurred while changing the password",
             error: error.message
         });
     }
 };
+
 
 

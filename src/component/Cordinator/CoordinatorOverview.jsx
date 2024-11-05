@@ -59,8 +59,7 @@ export default function CoordinatorOverview() {
      
 
       <main className=" flex flex-col  h-screen   w-full space-y-6">
-        <h1 className=" text-3xl font-bold bg-blue-400   shadow-xl text-white p-4">Coordinator Overview Dashboard</h1>
-
+ 
         {/* Key Metrics Section */}
         <section className="mb-8 grid gap-4 md:grid-cols-3 lg:grid-cols-5 p-5 ">
           {Object.entries(keyMetrics).map(([key, value]) => (

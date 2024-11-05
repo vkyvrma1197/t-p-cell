@@ -51,6 +51,7 @@ const JobCard = ({ job }) => {
               </button>
             </div>
           </div>
+          <p className="text-sm text-gray-600 mb-1">Coodinator: {job.name}</p>
           <p className="text-sm text-gray-600 mb-1">Salary: {job.salary} P/M</p>
           <p className="text-sm text-gray-700 mb-2">{job.job_description}</p>
         </div>
@@ -58,7 +59,7 @@ const JobCard = ({ job }) => {
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 w-full">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-[40%]">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-[60%]">
             <h2 className="text-xl font-bold text-white bg-blue-950 p-4 rounded-t-xl mb-4">
               Verify Details
             </h2>
@@ -130,7 +131,7 @@ const JobCard = ({ job }) => {
                 type="checkbox"
                 checked={isChecked}
                 onChange={(e) => setIsChecked(e.target.checked)}
-                className="mr-2"
+                className="mr-2 "
               />
               <label className="text-sm text-gray-600">
                 I confirm that the details above are correct.

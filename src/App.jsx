@@ -19,12 +19,16 @@ import Profile from "./pages/Profile";
 import AcademicDashboard from "./pages/AcademicDashboard ";
 import OfferLetterUpload from "./pages/OfferLetterUpload";
 import ResumeUpload from "./pages/ResumeUpload";
+import { useSelector } from "react-redux";
 import HelpDeskComponent from "./pages/HelpDeskComponent";
 import StudentDetailsForm from "./pages/StudentDetailsForm";
 import AttachmentForm from "./pages/AttachmentForm";
 import SkillsForm from "./pages/SkillsForm";
 import CoordinatorOverview from "./component/Cordinator/CoordinatorOverview";
+import CompanyManagement from "./component/Cordinator/CompanyManagement";
+
  function App() {
+  const { user } = useSelector((state) => state.profile); 
   return (
     <div className="min-h-screen flex flex-col font-inter w-full">
       <div className="  bg-slate-300 flex flex-col font-inter">
@@ -60,7 +64,7 @@ import CoordinatorOverview from "./component/Cordinator/CoordinatorOverview";
               <Route path="dashboard/AttachmentForm" element={<AttachmentForm />} />
               <Route path="dashboard/skill" element={<SkillsForm />} />
               <Route path="dashboard/overview" element={<CoordinatorOverview />} />
-             
+              <Route path="dashboard/companymanagement" element={<CompanyManagement />} />
             </Route>
 
             {/* Add more routes as needed */}

@@ -124,7 +124,11 @@ export function login(email, password, navigate) {
 
       localStorage.setItem("token", JSON.stringify(response.data?.token));
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      navigate("/dashboard/recentjob");
+      if(response.data?.user?.accountType === "Student"){
+        navigate("/dashboard/recentjob");}
+        else if(response.data?.user?.accountType === "Coordinator"){
+          navigate("/dashboard/overview");
+        }
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
       toast.error(error.response.data.message);
