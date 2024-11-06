@@ -10,8 +10,8 @@ exports.uploadMediaToCloudinary = async (file, folder, height, quality) => {
     if (quality) {
         options.quality = quality;
     }
-    const fileType = file.mimetype.split('/')[0]; // Extract the type (image, video, etc.)
-    console.log(`File MIME type: ${file.mimetype}`); // Debugging line
+    // const fileType = file.mimetype.split('/')[0]; // Extract the type (image, video, etc.)
+    // console.log(`File MIME type: ${file.mimetype}`); // Debugging line
     options.resource_type = 'auto';
 
    

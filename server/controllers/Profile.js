@@ -126,22 +126,24 @@ exports.getAllUserDetails = async (req, res) => {
 
 exports.updateDisplayPicture = async (req, res) => {
     let connection;
-    try {
+    try { 
         // Fetch account and image URL from request
         const imageUrl = req.files.displayPicture; // Assuming imageUrl is sent in the body
         const id = req.user.id;
-
+        console.log("image:::", imageUrl);
+        console.log("id", id);
+        
         // Validate inputs
         if (!imageUrl || !id) {
             return res.status(400).json({
                 success: false,
                 message: "Please upload the image or all fields are required."
             });
-        }
-
+        } 
+      
         // Fetch user details
         connection=await connect();
-        const [userRows] = await connection.execute('SELECT * FROM student_details WHERE s_id = ?', [id]);
+        const [userRows] = await connection.execute('SELECT * FROM users WHERE user_id = ?', [id]);
         if (userRows.affectedRows === 0) {
             return res.status(404).json({
                 success: false,
@@ -155,9 +157,9 @@ exports.updateDisplayPicture = async (req, res) => {
             1000);
  
         const updateUserQuery = `
-            UPDATE student_details
-            SET s_photo_url = ?
-            WHERE s_id = ?`;
+            UPDATE users
+            SET photo_url = ?
+            WHERE user_id = ?`;
         const [updateRow] = await connection.execute(updateUserQuery, [finalImageUrl.secure_url, id]);
         if(updateRow.affectedRows===0){ 
             res.status(404).json({

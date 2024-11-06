@@ -1,10 +1,12 @@
 import React from 'react';
+import { useSelector } from "react-redux";
 
 const AcademicDashboard = () => {
+  const { user } = useSelector((state) => state.profile);
   return (
     <div className="p-6 bg-gray-100 min-h-screen w-full">
       <div className="bg-white p-4 rounded-lg shadow-md">
-        <h2 className="text-lg font-semibold mb-4">Welcome Sonam Mishra</h2>
+        <h2 className="text-lg font-semibold mb-4">Welcome Sonam {user?.name}</h2>
 
         {/* Current Academics Section */}
         <div className="bg-blue-400 text-white  p-3 rounded-t-lg">
@@ -15,10 +17,10 @@ const AcademicDashboard = () => {
         <div className="border border-gray-300 p-4 rounded-b-lg">
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <strong>Full name:</strong> Sonam Mishra
+              <strong>Full name:</strong> {user?.name}
             </div>
             <div>
-              <strong>Roll Name:</strong> MCA/10035/23
+              <strong>Roll Name:</strong> MCA/232040{user?.user_id}
             </div>
             <div>
               <strong>Degree:</strong> MCA
@@ -27,13 +29,13 @@ const AcademicDashboard = () => {
               <strong>Branch:</strong> Computer Application
             </div>
             <div>
-              <strong>Email:</strong> smishra301111@gmail.com
+              <strong>Email:</strong> {user?.email}
             </div>
             <div>
               <strong>Account Status:</strong> <span className="text-green-500">Active</span>
             </div>
             <div className='bg-blue-100 p-2 rounded-md'>
-              <strong>Login ID/Reg. No.:</strong> TPBIT-MCA1003523
+              <strong>Login ID/Reg. No.:</strong> NITB-MCA232040{user?.user_id}
             </div>
             <div className='bg-blue-100 p-2 rounded-md'>
               <strong>Account Created:</strong> 25-05-2024

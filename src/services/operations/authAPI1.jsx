@@ -4,7 +4,7 @@ import { setLoading, setToken } from "../../slices/authSlices";
  
 import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiconnector";
-import { endpoints } from "../api";
+import { endpoints, settingsEndpoints } from "../api";
  
 const {
   SENDOTP_API,
@@ -13,6 +13,8 @@ const {
   RESETPASSTOKEN_API,
   RESETPASSWORD_API,
 } = endpoints;
+
+const {UPDATE_DISPLAY_PICTURE_API} = settingsEndpoints;
 // const {user}=useSelector((state)=>state.profile)
 // const navigate=useNavigate()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -196,6 +198,13 @@ export function resetPassword(password, confirmPassword, token, navigate) {
     navigate("/login");
   };
 }
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+
+
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

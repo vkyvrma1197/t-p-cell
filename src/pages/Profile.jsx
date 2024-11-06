@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { changePassword } from "../services/operations/Profile";
-
+import { changePassword, } from "../services/operations/Profile";
+import { uploadProfileImage } from "../services/operations/Profile";
+  import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const { user } = useSelector((state) => state.profile);
   const { token } = useSelector((state) => state.auth);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const navigate=useNavigate()
 
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
@@ -21,7 +24,20 @@ const Profile = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const handleImageChange = (e) => {
+    setSelectedImage(e.target.files[0]);
+  };
   console.log("user", formData);
+
+  const handleImageUpload = async () => {
+    if (!selectedImage) return alert("Please select an image");
+    // API call to upload the image
+    // const formData = new FormData();
+    // formData.append("displayPicture", selectedImage);
+    console.log("selectedImage", selectedImage);
+ 
+   dispatch(uploadProfileImage(selectedImage, token,navigate));
+  };
 
   const handleChangePassword = (e) => {
     e.preventDefault();
@@ -97,12 +113,20 @@ const Profile = () => {
           {/* Right Section: Profile Picture */}
           <div className="w-[20%] flex flex-col items-center justify-center p-6">
             <img
-              src={user?.photo_url} // Placeholder if no profile pic
+              src={user?.photo_url || "default-profile.jpg"} // fallback image
               alt="Profile"
               className="rounded-full w-48 h-48 object-cover shadow-lg"
             />
-            <button className="mt-4 p-2 bg-blue-400 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
-              Update Profile Picture
+            <input
+              type="file"
+              onChange={handleImageChange}
+              className="mt-4 items-center"
+            />
+            <button
+              className="mt-4 p-2 bg-blue-400 text-white rounded-lg font-semibold hover:bg-blue-600 transition"
+              onClick={handleImageUpload}
+            >
+              Upload Image
             </button>
           </div>
         </div>
@@ -136,6 +160,7 @@ const Profile = () => {
               placeholder="Confirm Password"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
+
             <button
               className="w-max p-6 bg-blue-950 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition"
               onClick={handleChangePassword}
