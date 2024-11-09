@@ -33,24 +33,24 @@ const recentActivities = [
   },
 ];
 
-const upcomingInterviews = [
-  {
-    candidateName: "Alice Johnson",
-    jobTitle: "Software Engineer",
-    date: "2024-03-05",
-    time: "02:00 PM",
-    type: "Interview",
-    status: "Scheduled",
-  },
-  {
-    candidateName: "Bob Williams",
-    jobTitle: "Data Analyst",
-    date: "2024-03-06",
-    time: "10:30 AM",
-    type: "Test",
-    status: "Pending",
-  },
-];
+// const upcomingInterviews = [
+//   {
+//     candidateName: "Alice Johnson",
+//     jobTitle: "Software Engineer",
+//     date: "2024-03-05",
+//     time: "02:00 PM",
+//     type: "Interview",
+//     status: "Scheduled",
+//   },
+//   {
+//     candidateName: "Bob Williams",
+//     jobTitle: "Data Analyst",
+//     date: "2024-03-06",
+//     time: "10:30 AM",
+//     type: "Test",
+//     status: "Pending",
+//   },
+// ];
 
 const applicationData = [
   { name: "Week 1", applications: 50 },
@@ -74,22 +74,31 @@ const placementTrendData = [
 ];
 
 export default function CoordinatorOverview() {
-  // Mock data for demonstration purposes
+  const [isOpen, setIsOpen] = useState(false);
 
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  // Mock data for demonstration purposes
+  const [upcomingInterviews, setUpcomingInterviews] = useState([]);
   const [activeNavItem, setActiveNavItem] = useState("Overview");
   const navigate = useNavigate();
   const [stuCount, setStuCount] = useState(0);
   const [conmapnyCount, setCompanyCount] = useState(0);
   const [jobCount, setJobCount] = useState(0);
-  const [totalApplications, setTotalApplications] = useState(0);  
+  const [totalApplications, setTotalApplications] = useState(0);
   const keyMetrics = {
     totalStudents: stuCount,
     totalCompanies: conmapnyCount,
     totalJobOpenings: jobCount,
     totalApplications: totalApplications,
-   
   };
+  const [showAll, setShowAll] = useState(false);
 
+  // Only show the first 6 rows if showAll is false
+  const interviewsToShow = showAll
+    ? upcomingInterviews
+    : upcomingInterviews.slice(0, 4);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -106,12 +115,17 @@ export default function CoordinatorOverview() {
           "http://localhost:4000/api/v1/jobposting/getJob"
         );
         setJobCount(response3.data.count); // assuming `response.data` is an array of users
-        
+
         const response4 = await axios.get(
           "http://localhost:4000/api/v1/applications/getAllAplication"
         );
+        setTotalApplications(response4.data.count);
 
-        setTotalApplications(response4.data.count); 
+        // fetch dta for interview
+        const response5 = await axios.get(
+          "http://localhost:4000/api/v1/applications/getAllInterviewSchedule"
+        );
+        setUpcomingInterviews(response5.data.data);
       } catch (error) {
         console.error("Error fetching data", error);
       }
@@ -119,8 +133,8 @@ export default function CoordinatorOverview() {
 
     fetchData();
   }, []);
- 
-  console.log(totalApplications);
+
+  console.log(upcomingInterviews);
 
   return (
     <div className="min-h-screen  bg-white w-full">
@@ -184,50 +198,124 @@ export default function CoordinatorOverview() {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {upcomingInterviews.map((interview, index) => (
-                <Table.Row key={index}>
-                  <Table.Cell>{interview.candidateName}</Table.Cell>
-                  <Table.Cell>{interview.jobTitle}</Table.Cell>
-                  <Table.Cell>{interview.date}</Table.Cell>
-                  <Table.Cell>{interview.time}</Table.Cell>
-                  <Table.Cell>{interview.type}</Table.Cell>
-                  <Table.Cell>{interview.status}</Table.Cell>
-                </Table.Row>
-              ))}
+              {interviewsToShow.map((interview, index) => {
+                const interviewDate = new Date(interview.date);
+                const round = interview.rounds;
+                let textRound;
+                if (round === 1) textRound = "Online Test";
+                else if (round === 2) textRound = "Technical Round";
+                else if (round === 3) textRound = "HR Round";
+                else textRound = "4th Round";
+
+                return (
+                  <Table.Row key={index}>
+                    <Table.Cell>{interview.company_name}</Table.Cell>
+                    <Table.Cell>{interview.job_title}</Table.Cell>
+                    <Table.Cell>
+                      {interviewDate.toLocaleDateString("en-GB")}
+                    </Table.Cell>
+                    <Table.Cell>10:00 AM</Table.Cell>
+                    <Table.Cell>{textRound}</Table.Cell>
+                    <Table.Cell>{interview.SPOC}</Table.Cell>
+                  </Table.Row>
+                );
+              })}
             </Table.Body>
           </Table>
-          <Button className="mt-4">Schedule New</Button>
-        </section>
+          <div className="flex justify-between items-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="mt-4 bg-blue-950 p-2 rounded-md px-5 text-white"
+            >
+              {showAll ? "Show Less" : "View All"}
+            </button>
+            <div>
+      <Button
+        onClick={openModal}
+      >
+      Schedule New
+      </Button>
 
-        {/* Quick Actions Section */}
-        <section className="p-5">
-          <h2 className="mb-4 text-2xl font-semibold">Quick Actions</h2>
-          <div className="flex flex-wrap gap-4">
-            <Button>
-              <Plus className="mr-2 h-4 w-4" /> Add New Student
-            </Button>
-            <Button>
-              <Plus className="mr-2 h-4 w-4" /> Add New Company
-            </Button>
-            <Button>
-              <Plus className="mr-2 h-4 w-4" /> Post New Job
-            </Button>
-            <DropdownMenu>
-              <DropdownMenu.Trigger asChild>
-                <Button>
-                  <FileText className="mr-2 h-4 w-4" /> Generate Reports
-                </Button>
-              </DropdownMenu.Trigger>
-              <DropdownMenu.Content>
-                <DropdownMenu.Item>Placement Report</DropdownMenu.Item>
-                <DropdownMenu.Item>Application Status Report</DropdownMenu.Item>
-                <DropdownMenu.Item>
-                  Company Participation Report
-                </DropdownMenu.Item>
-              </DropdownMenu.Content>
-            </DropdownMenu>
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-gray-800 max-w-md w-full p-6 rounded-lg text-white relative">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-200"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-semibold text-center mb-2">Company Details</h2>
+            <p className="text-gray-400 text-center mb-6">Please fill in the company information below.</p>
+            <form className="flex flex-col space-y-4">
+              <div>
+                <label className="block mb-1 font-medium">Company ID</label>
+                <input
+                  type="text"
+                  placeholder="Enter company ID"
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-1 font-medium">Company Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter company name"
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-1 font-medium">Industry</label>
+                <input
+                  type="text"
+                  placeholder="Enter industry"
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-1 font-medium">HR ID</label>
+                <input
+                  type="text"
+                  placeholder="Enter HR ID"
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-1 font-medium">Website</label>
+                <input
+                  type="url"
+                  placeholder="https://example.com"
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-1 font-medium">Address</label>
+                <textarea
+                  placeholder="Enter company address"
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 h-24"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="mt-4 w-full p-2 rounded bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
           </div>
         </section>
+
+        
 
         {/* Charts Section */}
         <section className="mb-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">

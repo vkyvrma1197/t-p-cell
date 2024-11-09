@@ -44,7 +44,7 @@ const TableRow = ({ children }) => {
 };
 
 const TableCell = ({ children, isHeader = false }) => {
-  const cellClass = isHeader ? "px-4 py-2 text-left font-semibold text-gray-700" : "px-4 py-2 text-gray-600 flex items-center justify-between";
+  const cellClass = isHeader ? "px-4 py-2 font-semibold text-gray-700" : "px-4 py-2 text-gray-600 flex items-center justify-between";
   return (
     <td className={cellClass}>
       {children}
