@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// Make sure you have this icon or any icon you want to use
 import { FaChevronRight } from "react-icons/fa";
+
 function Announcements1() {
   return (
-    <section className="bg-gradient-to-r from-white-50 to-blue-50 p-8 shadow-lg rounded-2xl mt-8 w-full lg:w-2/3">
+    <section className="bg-gradient-to-r from-white-50 to-blue-50 p-8 shadow-lg rounded-2xl mt-8 w-full lg:w-2/4">
       {/* Announcement Section Header */}
       <div className="flex items-center mb-6">
         <div className="text-white p-4 rounded-lg mr-4">
@@ -38,7 +38,7 @@ const QuickLinks = () => (
     <h2 className="text-2xl font-bold mb-4">Quick Links</h2>
     <ul className="space-y-2">
       <li>
-      <div className="flex flex-row   items-center">
+        <div className="flex flex-row items-center">
           <FaChevronRight className="w-4 h-4 mr-2" />
           <a
             href="https://www.manit.ac.in/sites/default/files/documents/Placement%20Process.pdf"
@@ -51,7 +51,7 @@ const QuickLinks = () => (
         </div>
       </li>
       <li>
-      <div className="flex flex-row   items-center">
+        <div className="flex flex-row items-center">
           <FaChevronRight className="w-4 h-4 mr-2" />
           <a
             href="https://www.manit.ac.in/campus-day"
@@ -59,35 +59,32 @@ const QuickLinks = () => (
             rel="noopener noreferrer"
             className="flex items-center text-blue-950 hover:underline"
           >
-            Recruitment Guidline
+            Recruitment Guideline
           </a>
         </div>
       </li>
       <li>
-        <Link
-          to="/schedule"
-          className="flex items-center text-blue-950 hover:underline"
-        >
-          <FaChevronRight className="w-4 h-4 mr-2" />
-          Training Schedule
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/announcements"
-          className="flex items-center text-blue-950 hover:underline"
-        >
-          <FaChevronRight className="w-4 h-4 mr-2" />
-          Important Announcements
-        </Link>
-
-        <div className="flex flex-row   items-center mt-2">
+        <div className="flex flex-row items-center">
           <FaChevronRight className="w-4 h-4 mr-2" />
           <a
             href="https://www.manit.ac.in/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-blue-950 hover:underline "
+            className="flex items-center text-blue-950 hover:underline"
+          >
+            Training Shedule
+          </a>
+        </div>
+      </li>
+      
+      <li>
+        <div className="flex flex-row items-center mt-2">
+          <FaChevronRight className="w-4 h-4 mr-2" />
+          <a
+            href="https://www.manit.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center text-blue-950 hover:underline"
           >
             MANIT Official website
           </a>
@@ -99,7 +96,7 @@ const QuickLinks = () => (
 
 const Announcements = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-12 w-full ">
+    <div className="flex flex-col lg:flex-row gap-12 w-full">
       {/* Left: Announcements Section */}
       <Announcements1 />
 

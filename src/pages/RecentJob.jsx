@@ -18,6 +18,7 @@ const RecentJob = () => {
   }, [dispatch, navigate, currentPage]);
 
   const totalPages = Math.ceil(totalJobs / jobsPerPage);
+console.log('jobDTA',jobData);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
