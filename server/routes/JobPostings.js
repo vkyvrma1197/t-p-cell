@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
-
+  
  
 const {getAllJobListings,getJobListingById,postJoblistings,updateJobListingById, deleteJobListingById,getJob}=require("../controllers/JobPostings"); 
 // Signup for the company
  const {auth,isStudent,isCordinator,isAdmin}=require("../middlewares/auth");
 
 // Job Listing
-// Get All Job Listings
+// Get All Job Listings       
 
 router.get("/getAllJoblistings",auth,getAllJobListings);
-router.get("/getJob",getJob);
+router.get("/getJob",getJob);  
 // GET a specific job listing by ID
 router.get("/getJobListingById/:id", getJobListingById);
 // Post Job Listing
