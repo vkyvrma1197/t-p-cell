@@ -3,6 +3,8 @@ const cookieParser = require('cookie-parser');
 const database = require("./config/database");
 require('dotenv').config();
 const userRoutes = require("./routes/User");
+const companiesRoutes = require("./routes/Companies");
+const applicationsRoutes = require("./routes/Application");
 const profileRoutes = require("./routes/Profile");
 const currAcademicsRoutes = require("./routes/CurrAcademics");
 const applyJobRoutes = require("./routes/ApplyJob");
@@ -29,6 +31,8 @@ app.use(cors({
 }))
 
 app.use('/api/v1/auth', userRoutes);
+app.use('/api/v1/applications', applicationsRoutes);
+app.use('/api/v1/companies', companiesRoutes);
 app.use('/api/v1/jobposting', jobRoutes);
 app.use('/api/v1/profile', profileRoutes);
 app.use('/api/v1/gap', gapRoutes);

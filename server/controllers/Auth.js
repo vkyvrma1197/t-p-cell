@@ -311,3 +311,46 @@ exports.changePassword = async (req, res) => {
 
 
 
+exports.getAllUser = async (req, res) => {
+    let connection;
+    try {
+        // Fetch Data
+         
+       
+
+      
+
+        // Connect to the database
+        connection = await connect();
+
+        // Get user detail for verification
+        const [userRows] = await connection.execute('SELECT COUNT(*) AS count FROM users');
+        if (userRows.length === 0) {
+            await connection.end();
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            });
+        }
+
+        const user = userRows[0];
+
+        // Close the connection
+        await connection.end();
+
+        return res.status(200).json({
+            success: true,
+            message: "Useer COutn Successfully",
+            count:user.count
+        });
+    } catch (error) {
+        console.log("Error in get user",error)    ;
+        if (connection) await connection.end(); // Ensure connection is closed
+        return res.status(500).json({
+            success: false,
+            message: "An error occurred while get the user",
+            error: error.message
+        });
+    }
+};
+
