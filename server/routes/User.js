@@ -7,7 +7,8 @@ const {
   login,
   signup,
   sendOtp,
-  changePassword
+  changePassword,
+  getAllUser
 } = require("../controllers/Auth")
 const {
   resetPasswordToken,
@@ -31,6 +32,7 @@ const { auth,isCompany,isStudent,isTPR } = require("../middlewares/auth")
 
 // Route for user login
 router.post("/login", login)
+router.get("/getAllUser", getAllUser)
 
 // // Route for user signup
 router.post("/signup", signup)

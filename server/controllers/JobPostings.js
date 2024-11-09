@@ -24,6 +24,29 @@ exports.getAllJobListings = async (req, res) => {
         });
     }
 };
+exports.getJob = async (req, res) => {
+    let connection;
+    try {
+        
+        connection = await connect();
+        if (!connection) {
+            throw new Error("Failed to establish a database connection.");
+        }
+        const [results] = await connection.execute('SELECT COUNT(*) AS count FROM job_postings');
+        res.status(200).json({
+            success: true,
+            message: "Job listings retrieved successfully",
+            count: results[0].count
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Error retrieving job listings",
+            error: err.message
+        });
+    }
+};
 
 // GET a specific job listing by ID
 exports.getJobListingById = async (req, res) => {
