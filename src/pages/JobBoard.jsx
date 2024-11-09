@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Search, MapPin, Building, Calendar, Briefcase, DollarSign, Clock, CheckCircle } from "lucide-react";
-
+import Footer from "../component/common/Footer";
 // Input Component
 const Input = ({ type = 'text', placeholder, value, onChange, className }) => {
   return (
@@ -496,6 +496,8 @@ export default function JobBoard() {
           ))}
         </div>
       </div>
+   
     </div>
+    
   );
 }

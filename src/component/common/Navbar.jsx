@@ -20,7 +20,6 @@ const Navbar = () => {
   };
 
   return (
-<<<<<<< HEAD
     <>
       <nav className="fixed top-0 left-0 right-0 bg-blue-950 text-white z-50 shadow-md">
         <div className="flex items-center justify-between px-4 py-3">
@@ -40,22 +39,16 @@ const Navbar = () => {
               </h6>
             </div>
           </div>
-=======
-    <> 
-      <nav className="fixed left-0 right-0 bg-white   shadow-lg z-50">
-        <div className="container mx-auto flex justify-between items-center p-4">
-           
->>>>>>> 05acb53bc6af9e1c9d66cd7521f8ef2bdafc65a3
 
           {/* Main Links */}
           <ul className="hidden md:flex gap-6 pl-8">
             {[
               { label: 'Home', path: '/' },
               { label: 'Opportunities', path: '/jobboard' },
-              { label: 'For Recruiters', path: '/For-Recruiters' },
-              { label: 'Placement Statistics', path: '/Placement-Statistics' },
-              { label: 'Training & Resources', path: '/Training-Resources' },
-              { label: 'About', path: '/about-us' },
+              { label: 'For Recruiters', path: '/ForRecruiters' },
+              { label: 'Placement Statistics', path: '/PlacementStatistics' },
+              
+              { label: 'About', path: '/AboutUs' },
             ].map((link, index) => (
               <li key={index} className="text-base md:text-lg font-medium relative">
                 <Link

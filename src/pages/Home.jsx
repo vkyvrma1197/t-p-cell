@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="bg-gray-100">
       {/* Home Page Banner */}
-      <HomePageImage />
+      <HomePageImage/>
 
       {/* Main content: Announcements, Resources, and Featured Companies */}
      

@@ -26,7 +26,9 @@ import AttachmentForm from "./pages/AttachmentForm";
 import SkillsForm from "./pages/SkillsForm";
 import CoordinatorOverview from "./component/Cordinator/CoordinatorOverview";
 import CompanyManagement from "./component/Cordinator/CompanyManagement";
-
+import AboutUs from "./pages/AboutUs";
+import ForRecruiters from "./pages/ForRecruiters";
+import PlacementStatistics from "./pages/PlacementStatisticsPage";
  function App() {
   const { user } = useSelector((state) => state.profile); 
   return (
@@ -38,6 +40,10 @@ import CompanyManagement from "./component/Cordinator/CompanyManagement";
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+          
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/forrecruiters" element={<ForRecruiters />} />
+        <Route path="/PlacementStatistics" element={<PlacementStatistics/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/resume-tips" element={<InterviewTips />} />
