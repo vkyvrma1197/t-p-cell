@@ -26,6 +26,8 @@ import AttachmentForm from "./pages/AttachmentForm";
 import SkillsForm from "./pages/SkillsForm";
 import CoordinatorOverview from "./component/Cordinator/CoordinatorOverview";
 import CompanyManagement from "./component/Cordinator/CompanyManagement";
+import Error from "./pages/Error";
+import JobPostingsList from "./component/Cordinator/JobPostingsList";
 
  function App() {
   const { user } = useSelector((state) => state.profile); 
@@ -65,6 +67,10 @@ import CompanyManagement from "./component/Cordinator/CompanyManagement";
               <Route path="dashboard/skill" element={<SkillsForm />} />
               <Route path="dashboard/overview" element={<CoordinatorOverview />} />
               <Route path="dashboard/companymanagement" element={<CompanyManagement />} />
+                <Route path="/dashboard/companymanagement/viewOpening" element={<JobPostingsList/>}/>
+
+                
+             
             </Route>
 
             {/* Add more routes as needed */}

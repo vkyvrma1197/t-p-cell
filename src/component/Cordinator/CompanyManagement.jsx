@@ -2,7 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import Button from "../common/Button";
+import { Link } from "react-router-dom";
 function CompanyManagement() {
+  const [company, setCompany] = useState(""); // Initial state for company name
+
+  const handleCompanyChange = (e) => {
+    setCompany(e.target.value); // Update state on input change
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
@@ -11,6 +18,26 @@ function CompanyManagement() {
 
   const openModal1 = () => setIsOpen1(true);
   const closeModal1 = () => setIsOpen1(false);
+
+  const [isOpen2, setIsOpen2] = useState(false);
+  const openModal2 = () => setIsOpen2(true);
+  const closeModal2 = () => setIsOpen2(false);
+
+  const jobs = [
+    { id: 1, title: "Software Engineer" },
+    { id: 2, title: "Product Manager" },
+    { id: 3, title: "Designer" },
+  ];
+  // Dummy functions
+  const editJob = (id) => {
+    console.log(`Edit job with id: ${id}`);
+  };
+  const deleteJob = (id) => {
+    console.log(`Delete job with id: ${id}`);
+  };
+  const addJob = () => {
+    console.log("Add a new job");
+  };
   return (
     <div className="p-6 bg-white w-full">
       {/* Top Section: Search and Add Company */}
@@ -123,14 +150,22 @@ function CompanyManagement() {
             <div className="text-sm mt-2">
               <span className="font-semibold">Open Positions:</span> 3
             </div>
-            <button className="mt-4 px-4 py-2 max-w-md bg-gray-200 rounded hover:bg-gray-100 transition-all duration-300">
-              View Openings
-            </button>
-            {/* Add Company Button */}
+            <Link to="/dashboard/companymanagement/viewOpening">
+              <button
+                onClick={openModal2}
+                className="mt-4 px-4 py-2 w-full bg-gray-400 rounded hover:bg-gray-300 transition-all duration-300"
+              >
+                View Openings
+              </button>
+            </Link>
+            {/* edit Company Button */}
             <div>
               <div>
-                <button onClick={openModal1} className="mt-4 px-4 py-2  w-full bg-gray-400 rounded hover:bg-gray-300 transition-all duration-300">
-                 Edit
+                <button
+                  onClick={openModal1}
+                  className="mt-4 px-4 py-2  w-full bg-gray-400 rounded hover:bg-gray-300 transition-all duration-300"
+                >
+                  Edit
                 </button>
 
                 {isOpen1 && (
@@ -155,9 +190,9 @@ function CompanyManagement() {
                           </label>
                           <input
                             type="text"
-                            placeholder="Enter company name"
+                            placeholder={company}
                             className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
-                            
+                            onChange={handleCompanyChange} // Allow editing with onChange
                           />
                         </div>
 
