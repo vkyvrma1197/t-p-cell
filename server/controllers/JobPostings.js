@@ -10,6 +10,7 @@ exports.getAllJobListings = async (req, res) => {
             throw new Error("Failed to establish a database connection.");
         }
         const [results] = await connection.execute('SELECT jp.*, us.* , c.*  FROM job_postings AS jp INNER JOIN users AS us ON jp.user_id = us.user_id INNER JOIN companies AS c ON jp.company_id = c.company_id WHERE us.user_id ');
+        connection.end();
         res.status(200).json({
             success: true,
             message: "Job listings retrieved successfully",
@@ -33,6 +34,7 @@ exports.getJob = async (req, res) => {
             throw new Error("Failed to establish a database connection.");
         }
         const [results] = await connection.execute('SELECT COUNT(*) AS count FROM job_postings');
+        connection.end();
         res.status(200).json({
             success: true,
             message: "Job listings retrieved successfully",
@@ -64,6 +66,7 @@ exports.getJobListingById = async (req, res) => {
                 message: 'Job listing not found'
             });
         }
+        connection.end();
         res.status(200).json({
             success: true,
             message: "Job listing retrieved successfully",
@@ -199,6 +202,7 @@ exports.deleteJobListingById = async (req, res) => {
                 message: 'Job Postings not found'
             });
         }
+        await connection.end();
         res.status(200).json({
             success: true,
             message: "Job Postings deleted successfully",

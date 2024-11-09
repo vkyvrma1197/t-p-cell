@@ -105,6 +105,7 @@ exports.getAllGaps = async (req, res) => {
         const result = await pool.request().query('SELECT * FROM academic_gaps');
 
         // Return the result
+        
         res.status(200).json(result.recordset);
     } catch (err) {
         res.status(500).json({ error: err.message });  // Return error if something goes wrong

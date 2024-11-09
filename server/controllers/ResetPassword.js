@@ -26,7 +26,7 @@ exports.resetPasswordToken = async (req, res) => {
         const url = `http://localhost:4000/update-password/${token}`
         // ab mail send karte hai user ke email pe url ke sath
         await mailSender(email, "Reset passwrod link", ResetPasswordLink(url))
-
+        await connection.end();
         return res.status(200).json({
             success: true,
             message: "Email Sent successfully,please check email",
@@ -81,6 +81,7 @@ exports.resetPassword = async (req, res) => {
         await User.findOneAndUpdate({ token: token }, { password: hashedPassword }, { new: true })
         // return response
         await mailSender(user.email,"Your Password is reset",passwordSuccess(user.firstName,user.email))
+        await connection.end();
         return res.status(200).json({
             success: true,
             message: "Password reset Successfully"
