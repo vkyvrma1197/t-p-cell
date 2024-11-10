@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import Button from "../common/Button";
 import { Link } from "react-router-dom";
 function CompanyManagement() {
   const [company, setCompany] = useState(""); // Initial state for company name
-
+  const [companyList, setCompanyList] = useState([]); // Initial state for company list
   const handleCompanyChange = (e) => {
     setCompany(e.target.value); // Update state on input change
   };
@@ -22,12 +22,7 @@ function CompanyManagement() {
   const [isOpen2, setIsOpen2] = useState(false);
   const openModal2 = () => setIsOpen2(true);
   const closeModal2 = () => setIsOpen2(false);
-
-  const jobs = [
-    { id: 1, title: "Software Engineer" },
-    { id: 2, title: "Product Manager" },
-    { id: 3, title: "Designer" },
-  ];
+ 
   // Dummy functions
   const editJob = (id) => {
     console.log(`Edit job with id: ${id}`);

@@ -109,7 +109,7 @@ exports.updateResume = async (req, res) => {
                 message: "Cannot update resume right now. Please try again later.",
             });
         }
-
+      
         return res.status(200).json({
             success: true,
             message: "Resume updated successfully.",
@@ -172,7 +172,7 @@ exports.addCurrAcademics = async (req, res) => {
             });
         }
 
-        await connection.end();
+        
 
         return res.status(201).json({
             success: true,
@@ -254,7 +254,7 @@ exports.updateCurrAcademicsById = async (req, res) => {
             });
         }
 
-        await connection.end();
+        
 
         return res.status(200).json({
             success: true,
