@@ -41,6 +41,7 @@ exports.updateProfile = async (req, res) => {
                 message: "Profile not found"
             });
         }
+        await connection.end();
         // Return response
         return res.status(200).json({
             success: true,
@@ -83,7 +84,7 @@ exports.deleteAccount = async (req, res) => {
                 message:"Profile not found",
             })
         }
-        
+        await connection.end(); 
         //  // return response
         return res.status(200).json({
             success: true,
@@ -110,6 +111,7 @@ exports.getAllUserDetails = async (req, res) => {
                 message: "User not found"
             });
         }
+        await connection.end();
         return res.status(200).json({
             success: true,
             message: "User Details fetch Successfully",
@@ -167,6 +169,7 @@ exports.updateDisplayPicture = async (req, res) => {
                 message:"Can not update right now"
             })
         }
+        await connection.end();
         await mailSender(req.user.email, "Update Successfully", ProfilePicUpdate())
         res.send({
             success: true,
