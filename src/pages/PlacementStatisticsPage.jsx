@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../component/common/Header';
 import Footer from '../component/common/Footer';
-import About from '../component/core/Homepage/About';
+
 import PlacementStatistics from '../component/core/Homepage/PlacementStatistics';
 
 const PlacementStatisticsPage= () => (

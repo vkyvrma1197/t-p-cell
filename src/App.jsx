@@ -28,7 +28,7 @@ import CoordinatorOverview from "./component/Cordinator/CoordinatorOverview";
 import CompanyManagement from "./component/Cordinator/CompanyManagement";
 import AboutUs from "./pages/AboutUs";
 import ForRecruiters from "./pages/ForRecruiters";
-import PlacementStatistics from "./pages/PlacementStatisticsPage";
+import PlacementStaticsPage from "./pages/PlacementStatisticsPage"
  function App() {
   const { user } = useSelector((state) => state.profile); 
   return (
@@ -43,7 +43,7 @@ import PlacementStatistics from "./pages/PlacementStatisticsPage";
           
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/forrecruiters" element={<ForRecruiters />} />
-        <Route path="/PlacementStatistics" element={<PlacementStatistics/>} />
+        <Route path="/PlacementStatistics" element={<PlacementStaticsPage/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/resume-tips" element={<InterviewTips />} />
