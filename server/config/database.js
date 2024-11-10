@@ -7,7 +7,12 @@ const connect = async () => {
             host: process.env.HOST,
             user: process.env.USER,
             password: process.env.PASSWORD,
-            database: process.env.DATABASE
+            database: process.env.DATABASE,
+            waitForConnections: true,
+            connectionLimit: 1000,
+            queueLimit: 0,
+            connectTimeout: 10000,
+            enableKeepAlive: true
         });
         console.log("SQL connected successfully");
         return connection;  // Return the connection object
