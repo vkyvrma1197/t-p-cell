@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../services/operations/authAPI1";
 import {
   FaRegChartBar,
   FaTable,
@@ -26,6 +28,8 @@ import {
 } from "react-icons/md";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState(null); // State to manage dropdowns
   const [upDown, setUpDown] = useState(false);
 
@@ -36,9 +40,9 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-1/5 bg-blue-950 text-white flex flex-col h-screen">
-      <nav className="flex-1 px-6 py-4 fixed">
-        <ul>
+    <div className="w-1/5 bg-blue-950 text-white flex flex-col max-h-screen">
+      <nav className="flex-1 px-6 py-4 fixed bg-blue-950">
+        <ul >
           {/* Render for Student */}
           {user.accountType === "Student" && (
             <>
@@ -307,10 +311,12 @@ const Sidebar = () => {
           </Link>
 
           <li className="mb-3">
-            <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+            <button  onClick={() => {
+              dispatch(logout(navigate));
+            }} className="flex items-center cursor-pointer text-gray-400 hover:text-white">
               <IoLogOutSharp className="mr-3 text-xl" />
               <span className="hidden md:inline">Sign Out</span>
-            </div>
+            </button>
           </li>
         </ul>
       </nav>

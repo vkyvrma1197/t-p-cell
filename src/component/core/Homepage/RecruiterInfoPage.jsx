@@ -5,10 +5,8 @@ const RecruiterInfoPage = () => {
     <div className="bg-gray-100 min-h-screen py-10 px-4 md:px-20">
       {/* Header Section */}
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-800">
-          Welcome to MANIT Bhopal
-        </h1>
-        <p className="text-lg text-gray-600 mt-4">
+      
+        <p className="text-xl text-gray-600 mt-4">
           Empowering students with diverse skills and industry-ready education.
         </p>
       </header>
