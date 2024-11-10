@@ -4,6 +4,7 @@ import RisuPic from "../../../assets/risu.jpg";
 import PriyaPic from "../../../assets/Priya.jpeg";
 import LuckyPic from "../../../assets/lucky.jpg";
 import VickyPic from "../../../assets/vicky.jpg";
+import Footer from "../../common/Footer"
 
 import { Github, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 
@@ -326,14 +327,7 @@ export default function EnhancedOurTeamWithContacts() {
           </div>{" "}
         </section>{" "}
       </main>
-      <footer className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-8 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <p>
-            &copy; {new Date().getFullYear()} Our Developer Team. All rights
-            reserved.
-          </p>
-        </div>
-      </footer>
+     <Footer/>
     </div>
   );
 }
