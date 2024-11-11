@@ -40,8 +40,8 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-1/5 bg-blue-950 text-white flex flex-col max-h-screen">
-      <nav className="flex-1 px-6 py-4 fixed bg-blue-950">
+    <div className="w-1/5 bg-gray-100 text-white flex flex-col max-h-screen pt-5 border-2 shadow-2xl">
+      <nav className="flex-1 px-6 py-4 fixed bg-gray-100">
         <ul >
           {/* Render for Student */}
           {user.accountType === "Student" && (
@@ -51,10 +51,6 @@ const Sidebar = () => {
                 <li className="mb-3">
                   <div
                     className="flex items-center cursor-pointer text-gray-400 hover:text-white transition-all"
-                    onClick={() => {
-                      toggleDropdown(0);
-                      setUpDown(!upDown);
-                    }}
                   >
                     <MdDashboard className="mr-3 text-xl" />
                     <span className="hidden md:inline">New Openings</span>
@@ -196,7 +192,7 @@ const Sidebar = () => {
               </li>
               <Link to="/dashboard/curracademics">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-black">
                     <HiAcademicCap className="mr-3 text-xl" />
                     <span className="hidden md:inline">Current Academics</span>
                   </div>
@@ -228,7 +224,7 @@ const Sidebar = () => {
             <>
               <Link to="/dashboard/overview">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                     <MdDashboard className="mr-3 text-xl" />
                     <span className="hidden md:inline">Overview</span>
                   </div>
@@ -237,7 +233,7 @@ const Sidebar = () => {
 
               <Link to="/dashboard/companymanagement">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                     <FaRegChartBar className="mr-3 text-xl" />
                     <span className="hidden md:inline">Company Management</span>
                   </div>
@@ -246,7 +242,7 @@ const Sidebar = () => {
 
               <Link to="/dashboard/studentmanagement">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                     <FaUser className="mr-3 text-xl" />
                     <span className="hidden md:inline">Student Management</span>
                   </div>
@@ -255,7 +251,7 @@ const Sidebar = () => {
 
               <Link to="/dashboard/placementdrives">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                     <MdLocalActivity className="mr-3 text-xl" />
                     <span className="hidden md:inline">Placement Drives</span>
                   </div>
@@ -264,7 +260,7 @@ const Sidebar = () => {
 
               <Link to="/dashboard/trainingdevelopment">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                     <HiAcademicCap className="mr-3 text-xl" />
                     <span className="hidden md:inline">Training & Development</span>
                   </div>
@@ -273,7 +269,7 @@ const Sidebar = () => {
 
               <Link to="/dashboard/notifications">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                     <MdAddAlert className="mr-3 text-xl" />
                     <span className="hidden md:inline">Notifications/Alerts</span>
                   </div>
@@ -282,7 +278,7 @@ const Sidebar = () => {
 
               <Link to="/dashboard/reportsanalytics">
                 <li className="mb-3">
-                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+                  <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                     <FaRegChartBar className="mr-3 text-xl " />
                     <span className="hidden md:inline">Reports & Analytics</span>
                   </div>
@@ -294,7 +290,7 @@ const Sidebar = () => {
           {/* Common to all users */}
           <Link to="dashboard/profile">
             <li className="mb-3">
-              <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+              <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                 <IoPersonOutline className="mr-3 text-xl" />
                 <span className="hidden md:inline">Manage Profile</span>
               </div>
@@ -303,7 +299,7 @@ const Sidebar = () => {
 
           <Link to="/dashboard/help">
             <li className="mb-3">
-              <div className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+              <div className="flex items-center cursor-pointer text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
                 <FaHandsHelping className="mr-3 text-xl" />
                 <span className="hidden md:inline">Help Desk</span>
               </div>
@@ -313,7 +309,7 @@ const Sidebar = () => {
           <li className="mb-3">
             <button  onClick={() => {
               dispatch(logout(navigate));
-            }} className="flex items-center cursor-pointer text-gray-400 hover:text-white">
+            }} className="flex items-center cursor-pointer w-full text-gray-400 hover:text-blue-950 hover:border-b-2 border-blue-950 p-1">
               <IoLogOutSharp className="mr-3 text-xl" />
               <span className="hidden md:inline">Sign Out</span>
             </button>

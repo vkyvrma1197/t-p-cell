@@ -77,4 +77,5 @@ export const settingsEndpoints = {
 // SETTINGS PAGE API
 export const companyEndpoints = {
   GET_ALLCOMPANYLSIT_API: BASE_URL + "/companies/getAllComapnyDetails",
+  ADD_COMPANYLIST_API: BASE_URL + "/companies/addComapnyDetails",
 }

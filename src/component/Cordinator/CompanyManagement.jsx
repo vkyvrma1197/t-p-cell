@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { Link,useNavigate } from "react-router-dom";
 import { getCompanyList } from "../../services/operations/Company"
 import { useSelector } from "react-redux";
+import { addCompany } from "../../services/operations/Company";
 function CompanyManagement() {
   const {token} = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -28,7 +29,31 @@ function CompanyManagement() {
   const [isOpen2, setIsOpen2] = useState(false);
   const openModal2 = () => setIsOpen2(true);
   const closeModal2 = () => setIsOpen2(false);
- 
+  const [formData, setFormData] = useState({
+    companyName: "",
+    industry: "",
+    website: "",
+    address: "",
+    description: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data:", formData);
+    dispatch(addCompany(formData, navigate,token));
+    // Process formData here (e.g., send to backend)
+
+    closeModal();
+  };
   // Dummy functions
   const editJob = (id) => {
     console.log(`Edit job with id: ${id}`);
@@ -60,85 +85,99 @@ function CompanyManagement() {
 
         {/* Add Company Button */}
         <div>
-          <div>
-            <Button onClick={openModal}>
-              <Plus className="mr-2 h-7 w-4" /> Add New Company
-            </Button>
+      <div>
+        <Button onClick={openModal}>
+          <Plus className="mr-2 h-7 w-4" /> Add New Company
+        </Button>
 
-            {isOpen && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 w-full">
-                <div className="bg-gray-800  w-[50%] p-6 rounded-lg text-white relative">
-                  <button
-                    onClick={closeModal}
-                    className="absolute top-2 right-2 text-gray-400 hover:text-gray-200"
-                  >
-                    &times;
-                  </button>
-                  <h2 className="text-2xl font-semibold text-center mb-2">
-                    Company Details
-                  </h2>
-                  <p className="text-gray-400 text-center mb-6">
-                    Please fill in the company information below.
-                  </p>
-                  <form className="flex flex-col space-y-4">
-                    <div>
-                      <label className="block mb-1 font-medium">
-                        Company Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter company name"
-                        className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block mb-1 font-medium">Industry</label>
-                      <input
-                        type="text"
-                        placeholder="Enter industry"
-                        className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block mb-1 font-medium">Website</label>
-                      <input
-                        type="url"
-                        placeholder="https://example.com"
-                        className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block mb-1 font-medium">Address</label>
-                      <textarea
-                        placeholder="Enter company address"
-                        className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 h-24"
-                      ></textarea>
-                    </div>
-                    <div>
-                      <label className="block mb-1 font-medium">
-                        Company Description
-                      </label>
-                      <textarea
-                        placeholder="Enter company address"
-                        className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 h-24"
-                      ></textarea>
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="mt-4 w-max px-8 p-3 rounded bg-blue-800 hover:bg-blue-700 text-white font-semibold"
-                    >
-                      Add
-                    </button>
-                  </form>
+        {isOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 w-full">
+            <div className="bg-gray-800 w-[50%] p-6 rounded-lg text-white relative">
+              <button
+                onClick={closeModal}
+                className="absolute top-2 right-2 text-gray-400 hover:text-gray-200"
+              >
+                &times;
+              </button>
+              <h2 className="text-2xl font-semibold text-center mb-2">
+                Company Details
+              </h2>
+              <p className="text-gray-400 text-center mb-6">
+                Please fill in the company information below.
+              </p>
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+                <div>
+                  <label className="block mb-1 font-medium">Company Name</label>
+                  <input
+                    type="text"
+                    name="companyName"
+                    placeholder="Enter company name"
+                    className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                  />
                 </div>
-              </div>
-            )}
+
+                <div>
+                  <label className="block mb-1 font-medium">Industry</label>
+                  <input
+                    type="text"
+                    name="industry"
+                    placeholder="Enter industry"
+                    className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                    value={formData.industry}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-1 font-medium">Website</label>
+                  <input
+                    type="url"
+                    name="website"
+                    placeholder="https://example.com"
+                    className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
+                    value={formData.website}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-1 font-medium">Address</label>
+                  <textarea
+                    name="address"
+                    placeholder="Enter company address"
+                    className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 h-24"
+                    value={formData.address}
+                    onChange={handleChange}
+                  ></textarea>
+                </div>
+
+                <div>
+                  <label className="block mb-1 font-medium">
+                    Company Description
+                  </label>
+                  <textarea
+                    name="description"
+                    placeholder="Enter company description"
+                    className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 h-24"
+                    value={formData.description}
+                    onChange={handleChange}
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="mt-4 w-max px-8 p-3 rounded bg-blue-800 hover:bg-blue-700 text-white font-semibold"
+                >
+                  Add
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
+        )}
+      </div>
+    </div>
       </div>
 
       {/* Company Cards */}
@@ -178,7 +217,7 @@ function CompanyManagement() {
                 </button>
 
                 {isOpen1 && (
-                  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 w-full">
+                  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 z-50 w-full">
                     <div className="bg-gray-800  w-[50%] p-6 rounded-lg text-white relative">
                       <button
                         onClick={closeModal1}
@@ -199,7 +238,7 @@ function CompanyManagement() {
                           </label>
                           <input
                             type="text"
-                            placeholder={company}
+                            placeholder={company.company_name}
                             className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
                             onChange={handleCompanyChange} // Allow editing with onChange
                           />
@@ -211,7 +250,7 @@ function CompanyManagement() {
                           </label>
                           <input
                             type="text"
-                            placeholder="Enter industry"
+                            placeholder={company.industry}
                             className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
                           />
                         </div>
@@ -222,7 +261,7 @@ function CompanyManagement() {
                           </label>
                           <input
                             type="url"
-                            placeholder="https://example.com"
+                            placeholder={company.website}
                             className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
                           />
                         </div>
@@ -232,7 +271,7 @@ function CompanyManagement() {
                             Address
                           </label>
                           <textarea
-                            placeholder="Enter company address"
+                            placeholder={company.address}
                             className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 h-24"
                           ></textarea>
                         </div>
@@ -241,7 +280,7 @@ function CompanyManagement() {
                             Company Description
                           </label>
                           <textarea
-                            placeholder="Enter company address"
+                            placeholder= {company.company_description}
                             className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 h-24"
                           ></textarea>
                         </div>
