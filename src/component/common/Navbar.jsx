@@ -47,7 +47,6 @@ const Navbar = () => {
               { label: 'Opportunities', path: '/jobboard' },
               { label: 'For Recruiters', path: '/ForRecruiters' },
               { label: 'Placement Statistics', path: '/PlacementStatistics' },
-              
               { label: 'About', path: '/AboutUs' },
               { label: 'Our Team', path: '/ourTeam' },
               

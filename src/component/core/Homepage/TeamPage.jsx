@@ -18,15 +18,15 @@ export default function EnhancedOurTeamWithContacts() {
         "Dedicated software developer pursuing a Master of Computer Applications at NIT Bhopal, with expertise in C++, JavaScript,and SQL. Experienced in full-stack development, demonstrated through projects such as an Online Learning Platform and aTraining and Placement Cell automation system. These projects highlight my ability to design, develop, and deploy scalable solutions while addressing complex technical challenges. I am committed to applying my skills to create innovative and impactful software solutions.",
       skills: ["JavaScript", "React", "Node.js", "AWS", "System Architecture"],
 
-      email: "alex.johnson@example.com",
-      phone: "+1 (555) 123-4567",
+      email: "riskmr3275@gmail.com",
+      phone: "+91 9798571703",
       resume: "https://example.com/alex-johnson-resume",
-      github: "https://github.com/alexjohnson",
-      twitter: "https://twitter.com/alexjohnson",
-      facebook: "https://facebook.com/alexjohnson",
-      instagram: "https://instagram.com/alexjohnson",
+      github: "https://github.com/riskmr3275",
+      twitter: "https://twitter.com/RISUGUPTA2",
+      facebook: "https://www.linkedin.com/in/risu-gupta-28aa01230/",
+      instagram: "https://www.instagram.com/risu_gupta_701/",
     },
-    {
+    {  
       name: "Priya Tripathi",
       role: "Developer",
       photo: PriyaPic,
@@ -85,11 +85,11 @@ export default function EnhancedOurTeamWithContacts() {
         "Dedicated software developer pursuing a Master of Computer Applications at NIT Bhopal, with expertise in C++, JavaScript,and SQL. Experienced in full-stack development, demonstrated through projects such as an Online Learning Platform and aTraining and Placement Cell automation system. These projects highlight my ability to design, develop, and deploy scalable solutions while addressing complex technical challenges. I am committed to applying my skills to create innovative and impactful software solutions.",
       skills: ["JavaScript", "React", "Node.js", "AWS", "System Architecture"],
 
-      email: "arisugupto@gmail.com",
-      phone: "+91 9798571703",
+      email: "vickyverma1197@gmail.com",
+      phone: "+91 6263940007",
       resume:
         "https://drive.google.com/file/d/1novTIN_yW4pOJz75YEjwqh2KhdO-WBfV/view",
-      github: "https://github.com/alexjohnson",
+      github: "https://github.com/vickyverma1197",
       twitter: "https://twitter.com/alexjohnson",
       facebook: "https://facebook.com/alexjohnson",
       instagram: "https://instagram.com/alexjohnson",

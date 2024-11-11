@@ -402,7 +402,9 @@ export default function JobBoard() {
   );
 
   return (
-    <div className="flex flex-col h-screen lg:flex-row gap-12 w-full space-y-6 bg-gradient-to-r">
+    
+    <div>
+      <div className="flex flex-col h-screen lg:flex-row gap-12 w-full space-y-6 bg-gradient-to-r">
       {/* Left side - Job details */}
       <div className="w-full lg:w-2/3 p-8 overflow-auto ">
         {selectedJob && (
@@ -495,9 +497,11 @@ export default function JobBoard() {
             </Card>
           ))}
         </div>
+        
       </div>
-   
+      
     </div>
-    
+    <Footer />
+    </div>
   );
 }
