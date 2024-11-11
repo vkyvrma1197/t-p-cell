@@ -85,11 +85,11 @@ export default function EnhancedOurTeamWithContacts() {
         "Dedicated software developer pursuing a Master of Computer Applications at NIT Bhopal, with expertise in C++, JavaScript,and SQL. Experienced in full-stack development, demonstrated through projects such as an Online Learning Platform and aTraining and Placement Cell automation system. These projects highlight my ability to design, develop, and deploy scalable solutions while addressing complex technical challenges. I am committed to applying my skills to create innovative and impactful software solutions.",
       skills: ["JavaScript", "React", "Node.js", "AWS", "System Architecture"],
 
-      email: "vickyverma1197@gmail.com",
-      phone: "+91 6263940007",
+      email: "arisugupto@gmail.com",
+      phone: "+91 9798571703",
       resume:
         "https://drive.google.com/file/d/1novTIN_yW4pOJz75YEjwqh2KhdO-WBfV/view",
-      github: "https://github.com/vickyverma1197",
+      github: "https://github.com/alexjohnson",
       twitter: "https://twitter.com/alexjohnson",
       facebook: "https://facebook.com/alexjohnson",
       instagram: "https://instagram.com/alexjohnson",
