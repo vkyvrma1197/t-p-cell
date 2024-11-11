@@ -20,8 +20,8 @@ const Home = () => {
         <section className="space-y-6">
           <UpcomingEvents />
         </section>
-{/* review slider*/}
-<section className="space-y-6">
+      {/* review slider*/}
+      <section className="space-y-6">
           <ReviewSlider/>
         </section>
         {/* Resources */}

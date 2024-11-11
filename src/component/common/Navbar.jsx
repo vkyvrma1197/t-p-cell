@@ -49,6 +49,8 @@ const Navbar = () => {
               { label: 'Placement Statistics', path: '/PlacementStatistics' },
               
               { label: 'About', path: '/AboutUs' },
+              { label: 'Our Team', path: '/ourTeam' },
+              
             ].map((link, index) => (
               <li key={index} className="text-base md:text-lg font-medium relative">
                 <Link

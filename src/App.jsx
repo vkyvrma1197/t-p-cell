@@ -29,6 +29,7 @@ import CompanyManagement from "./component/Cordinator/CompanyManagement";
 import AboutUs from "./pages/AboutUs";
 import ForRecruiters from "./pages/ForRecruiters";
 import PlacementStaticsPage from "./pages/PlacementStatisticsPage"
+import TeamPage from "./component/core/Homepage/TeamPage";
  function App() {
   const { user } = useSelector((state) => state.profile); 
   return (
@@ -50,6 +51,7 @@ import PlacementStaticsPage from "./pages/PlacementStatisticsPage"
             <Route path="/Jobboard" element={<JobBoard />} />
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/verify-email" element={<VerifyEmail />} />
+            <Route path="/ourTeam" element={<TeamPage />} />
 
             <Route
               element={

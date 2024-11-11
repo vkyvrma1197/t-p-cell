@@ -25,11 +25,11 @@ function Template({ title, description1, description2, image, formType }) {
             </p>
             {formType === "signup" ? <SignupForm /> : <LoginForm />}
           </div>
-          <div className="relative mx-auto w-11/12 max-w-[500px] md:mx-0">
+          <div className="relative mx-0 w-11/12 max-w-[1000px] md:mx-10">
             <img
               src="https://tse2.mm.bing.net/th?id=OIP.e9fc_b6SyeTTvOgeWa8AWQHaD3&pid=Api&P=0&h=180"
               alt="Pattern"
-              className="w-full h-auto max-w-[1000px] md:max-w-[800px]" // Increase image size on larger screens
+              className="w-full h-full mr-0 " // Increase image size on larger screens
               loading="lazy"
             />
           </div>
