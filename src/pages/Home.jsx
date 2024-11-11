@@ -5,22 +5,25 @@ import FeaturedCompanies from '../component/core/Homepage/FeaturedCompanies';
 import Footer from '../component/common/Footer';
 import HomePageImage from '../component/core/Homepage/HomePageImage';
 import UpcomingEvents from '../component/core/Homepage/UpcomingEvents';
+import ReviewSlider from './ReviewSlider';
 const Home = () => {
   return (
     <div className="bg-gray-100">
       {/* Home Page Banner */}
-      <HomePageImage />
+      <HomePageImage/>
 
       {/* Main content: Announcements, Resources, and Featured Companies */}
-      <main className="container mx-auto p-8 space-y-12 ">
-        {/* Announcements */}
+     
         <section className="space-y-6">
           <Announcements />
         </section>
         <section className="space-y-6">
           <UpcomingEvents />
         </section>
-
+{/* review slider*/}
+<section className="space-y-6">
+          <ReviewSlider/>
+        </section>
         {/* Resources */}
         <section className="space-y-6">
           <Resources />
@@ -33,8 +36,7 @@ const Home = () => {
         <section className="space-y-6">
           <Footer />
         </section>
-      </main>
-
+      
    
     </div>
   );

@@ -26,9 +26,9 @@ import AttachmentForm from "./pages/AttachmentForm";
 import SkillsForm from "./pages/SkillsForm";
 import CoordinatorOverview from "./component/Cordinator/CoordinatorOverview";
 import CompanyManagement from "./component/Cordinator/CompanyManagement";
-import Error from "./pages/Error";
-import JobPostingsList from "./component/Cordinator/JobPostingsList";
-
+import AboutUs from "./pages/AboutUs";
+import ForRecruiters from "./pages/ForRecruiters";
+import PlacementStaticsPage from "./pages/PlacementStatisticsPage"
  function App() {
   const { user } = useSelector((state) => state.profile); 
   return (
@@ -40,6 +40,10 @@ import JobPostingsList from "./component/Cordinator/JobPostingsList";
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+          
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/forrecruiters" element={<ForRecruiters />} />
+        <Route path="/PlacementStatistics" element={<PlacementStaticsPage/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/resume-tips" element={<InterviewTips />} />
@@ -67,10 +71,6 @@ import JobPostingsList from "./component/Cordinator/JobPostingsList";
               <Route path="dashboard/skill" element={<SkillsForm />} />
               <Route path="dashboard/overview" element={<CoordinatorOverview />} />
               <Route path="dashboard/companymanagement" element={<CompanyManagement />} />
-                <Route path="/dashboard/companymanagement/viewOpening" element={<JobPostingsList/>}/>
-
-                
-             
             </Route>
 
             {/* Add more routes as needed */}

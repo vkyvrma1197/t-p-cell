@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 function Resources() {
   return (
     <section className="bg-gradient-to-r from-white to-blue-50 p-8 shadow-lg rounded-2xl mt-8 max-w-8xl w-full mx-auto">
@@ -11,13 +12,16 @@ function Resources() {
             impactful resume.
           </p>
           <div className="space-x-4">
-            <button className="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
-              Resume Templates
-            </button>
+            {/* Link to Resume Templates page */}
+            <Link to="/resume-templates">
+              <button className="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
+                Resume Templates
+              </button>
+            </Link>
             <Link to="/resume-tips">
-            <button className="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
-              Resume Tips
-            </button>
+              <button className="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
+                Resume Tips
+              </button>
             </Link>
           </div>
         </div>
@@ -28,12 +32,9 @@ function Resources() {
             your next interview.
           </p>
           <div className="space-x-4">
-          
-              {" "}
-              <button className="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
-                Interview Tips
-              </button>
-          
+            <button className="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
+              Interview Tips
+            </button>
             <button className="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
               Practice Questions
             </button>

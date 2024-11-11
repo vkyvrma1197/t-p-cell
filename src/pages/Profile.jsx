@@ -100,7 +100,7 @@ const Profile = () => {
             <div className="flex justify-between py-2 border-b">
               <span className="text-gray-600 font-semibold">Reg. No.:</span>
               <span className="text-gray-700">
-                TPNITB-MCA2023{user.user_id}
+                NITB-MCA2023{user.user_id}
               </span>
             </div>
             <div className="flex justify-between py-2">

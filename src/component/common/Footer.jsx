@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-950 text-white py-6 mx-auto">
-      <div className="container mx-auto px-4">
+    <footer className="bg-blue-950 text-white py-6">
+      <div className="px-4">
 
         {/* Top Section with Links */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm w-full">
