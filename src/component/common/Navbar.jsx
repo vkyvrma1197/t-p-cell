@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ProfileDropdown from '../core/Auth/ProfileDropdown';
 import { MdNotificationAdd } from 'react-icons/md';
-
+ 
 const Navbar = () => {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 bg-blue-950 text-white z-50 shadow-md">
+      <nav className="fixed top-0 left-0 right-0 bg-blue-950 text-white z-50 ">
         <div className="flex items-center justify-between px-4 py-3">
           {/* Logo and Title Section */}
           <div className="flex items-center space-x-4">

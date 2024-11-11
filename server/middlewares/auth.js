@@ -11,7 +11,7 @@ exports.auth = async(req, res, next) => {
 
         // If token is missing
         if (!token) {
-            return res.status(401).json({
+            return res.status(401).json({    
                 success: false,
                 message: "Token is Missing"
             });
@@ -80,7 +80,7 @@ exports.isStudent = async (req, res, next) => {
 
 exports.isCordinator = async (req, res, next) => {
     try {
-        if (req.user.accountType !== "Cordinator") {
+        if (req.user.accountType !== "Coordinator") {
             return res.status(401).json({
                 success: false,
                 message: "This is protected route for Cordinator only"

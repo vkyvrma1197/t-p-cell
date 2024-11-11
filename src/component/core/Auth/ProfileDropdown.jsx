@@ -21,19 +21,20 @@ export default function ProfileDropdown() {
   return (
     <button className="relative" onClick={() => setOpen(true)}>
       <div className="flex items-center gap-x-1">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center pt-2">
           <img
             src={user?.photo_url}
             alt={`${user?.name}`}
-            className="aspect-square w-[30px] rounded-full object-cover "
+            className="aspect-square w-[40px] rounded-full object-cover "
           />
+          <p>{user?.accountType}</p>
           <div className="flex items-center gap-1 font-semibold text-blue-950 text-sm ml-2"><p>{user?.accountType}</p><AiOutlineCaretDown className="text-sm text-blue-950" /></div>
         </div>
       </div>
       {open && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-[170%] right-0 z-[1000] w-72 divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-blue-950"
+          className="absolute top-[130%] right-0 z-[1000] w-72 divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-blue-950"
           ref={ref}
         >
           <Link to="/dashboard/profile" onClick={() => setOpen(false)}>

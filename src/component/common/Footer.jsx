@@ -12,11 +12,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-2">CONTACT</h4>
             <p>Address: Link Road Number 3, Near Kali Mata Mandir, Bhopal, Madhya Pradesh, India 462003</p>
-            <p>Telephone: +91 755 4051000, 4052000</p>
+            <p>Telephone: +91 9798571703, 4052000</p>
             <p>Fax: +91 755 2670562</p>
-            <p>Email: <a href="mailto:pro[at]manit[dot]ac[dot]in" className="underline hover:text-gray-300">pro[at]manit[dot]ac[dot]in</a></p>
-            <p>Email: <a href="mailto:officeofdirector[at]manit[dot]ac[dot]in" className="underline hover:text-gray-300">officeofdirector[at]manit[dot]ac[dot]in</a></p>
-            <p>Web: <a href="http://www.manit.ac.in" className="underline hover:text-gray-300">www.manit.ac.in</a></p>
+            <p>Email: <a href="mailto:placementcell.nitb@gmail.com" className="underline hover:text-gray-300">placementcell.nitb@gmail.com</a></p>
+            <p>Email: <a href="mailto:officeofdirector@manit.ac.in" className="underline hover:text-gray-300">officeofdirector@manit.ac.in</a></p>
+            <p>Web: <a href="https://www.manit.ac.in" className="underline hover:text-gray-300">www.manit.ac.in</a></p>
           </div>
 
           {/* Column 2: Quick Links */}

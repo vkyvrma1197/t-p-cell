@@ -2,11 +2,17 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import Button from "../common/Button";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link,useNavigate } from "react-router-dom";
+import { getCompanyList } from "../../services/operations/Company"
+import { useSelector } from "react-redux";
 function CompanyManagement() {
+  const {token} = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [company, setCompany] = useState(""); // Initial state for company name
-  const [companyList, setCompanyList] = useState([]); // Initial state for company list
-  const handleCompanyChange = (e) => {
+  const {companyData} = useSelector((state) => state.company);
+   const handleCompanyChange = (e) => {
     setCompany(e.target.value); // Update state on input change
   };
 
@@ -33,6 +39,14 @@ function CompanyManagement() {
   const addJob = () => {
     console.log("Add a new job");
   };
+
+
+  useEffect(() => {
+    dispatch(getCompanyList(token,navigate))
+
+  }, [navigate,]);
+
+  console.log("Company List",companyData)
   return (
     <div className="p-6 bg-white w-full">
       {/* Top Section: Search and Add Company */}
@@ -129,18 +143,18 @@ function CompanyManagement() {
 
       {/* Company Cards */}
       <div className="grid grid-cols-3 gap-4 mb-8">
-        {["TechCorp", "FinanceHub", "EcoSolutions"].map((company, idx) => (
+        {companyData&&companyData.map((company, idx) => (
           <div
             key={idx}
             className="bg-white p-4 rounded-lg shadow flex flex-col"
           >
-            <h2 className="text-lg font-semibold">{company}</h2>
-            <p className="text-sm text-gray-500">Department</p>
+            <h2 className="text-lg font-semibold">{company.company_name}</h2>
+            <p className="text-sm text-gray-500">{company.industry}</p>
             <div className="text-sm mt-2">
-              <span className="font-semibold">Contact:</span> John Doe
+              <span className="font-semibold">Website:</span> {company.website}
             </div>
             <div className="text-sm">
-              <span className="font-semibold">Date:</span> 2024-03-01
+              <span className="font-semibold">Date:</span> {company.created_at}
             </div>
             <div className="text-sm mt-2">
               <span className="font-semibold">Open Positions:</span> 3
@@ -256,7 +270,7 @@ function CompanyManagement() {
           </div>
         ))}
       </div>
-
+      <div className="bg-blue-950 text-white p-4 w-max rounded-md px-7  "><button>View All</button></div>
       {/* Recent Activities */}
       <div className="bg-white p-4 rounded-lg shadow mb-8">
         <h3 className="text-lg font-semibold mb-4">Recent Activities</h3>
