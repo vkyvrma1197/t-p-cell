@@ -4,7 +4,7 @@ import {Outlet} from "react-router-dom"
 
 const Dashboard = () => {
   return (
-    <div className="flex w-full bg-blue-100">
+    <div className="flex w-full bg-gray-100">
       {/* Sidebar */}
       <Sidebar/>
       <Outlet/>

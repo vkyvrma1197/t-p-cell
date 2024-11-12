@@ -23,7 +23,7 @@ export function getCompanyList(token, navigate) {
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
-      toast.success("Company Data FEtch Successfully");
+      // toast.success("Company Data FEtch Successfully");
       dispatch(setCompanyData(response.data.result));
     } catch (error) {
       console.log("SENDOTP API ERROR............", error);

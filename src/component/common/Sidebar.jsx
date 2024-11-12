@@ -40,7 +40,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-1/5 bg-gray-100 text-white flex flex-col max-h-screen pt-5 border-2 shadow-2xl">
+    <div className="w-1/5 bg-gray-100 text-white flex flex-col max-h-screen pt-5  ">
       <nav className="flex-1 px-6 py-4 fixed bg-gray-100">
         <ul >
           {/* Render for Student */}
