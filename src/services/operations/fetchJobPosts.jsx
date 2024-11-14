@@ -84,7 +84,7 @@ export function ApllyJob(navigate, job_id, token) {
         toast.error(error.response.data.message);
         navigate("/dashboard/recentjob"); // Navigate to login if unauthorized
       } else {
-        toast.error("You have already applied for this job");
+        toast.error(error.response.data.message);
       }
     } finally {
       dispatch(setLoading(false)); // Always set loading to false after the API call

@@ -1,4 +1,4 @@
-import React from "react";
+ 
 import MansiPic from "../../../assets/mansi.jpg";
 import RisuPic from "../../../assets/risu.jpg";
 import PriyaPic from "../../../assets/Priya.jpeg";
@@ -6,7 +6,7 @@ import LuckyPic from "../../../assets/lucky.jpg";
 import VickyPic from "../../../assets/vicky.jpg";
 import Footer from "../../common/Footer"
 
-import { Github, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import { Github, Twitter, Instagram, Linkedin,   } from "lucide-react";
 
 export default function EnhancedOurTeamWithContacts() {
   const teamMembers = [
